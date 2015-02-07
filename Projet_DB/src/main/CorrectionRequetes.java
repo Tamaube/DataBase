@@ -15,7 +15,7 @@ public class CorrectionRequetes
 			System.exit(0);
 		}
 		
-		Connection co = ConnexionJDBC.openConnection(ConnexionJDBC.URL);
+		ConnexionJDBC co = new ConnexionJDBC();
 		
 		
 		ArrayList<String> ReqEleve = LecteurFichier.read(args[0]);
