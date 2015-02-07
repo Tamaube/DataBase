@@ -2,7 +2,7 @@ package outils;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
+
 public class ConnexionJDBC
 {
 	private Connection co;
@@ -27,63 +27,40 @@ public class ConnexionJDBC
 	}
 	
 	public ResultSet executerSelect(String requete) {
-
 		Statement monInstruction;
-
 		try {
 
 			monInstruction = this.co.createStatement();
 			ResultSet monresultat =monInstruction.executeQuery(requete);
-//			ResultSetMetaData rsmd = monresultat.getMetaData();
-//			Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
-//			while(monresultat.next()){
-//				Collection<Object> ligne = new ArrayList<Object>();
-//                for(int j = 1; j <= rsmd.getColumnCount(); j++){
-//                		
-//                	ligne.add(monresultat.getObject(j));
-//
-//                }
-//                toutleresultat.add(ligne);
-//	
-//			}
-
 			System.out.println(" ");
-	
 			System.out.println();
-	
-	
 			monInstruction.close();
 			
 			return monresultat;
 		} catch (SQLException e) {
-
 			e.printStackTrace();
-
 		}
 		return null;
 	}
 	
-	public Collection<Collection<Object>> getResEnCollection(ResultSet monresultat)
+	public ArrayList<ArrayList<String>> getResEnCollection(ResultSet monresultat)
 	{
-		Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
+		ArrayList<ArrayList<String>> toutleresultat = new ArrayList<ArrayList<String>>();
 		try
 		{
 			ResultSetMetaData rsmd = monresultat.getMetaData();
 			
 			while(monresultat.next()){
-				Collection<Object> ligne = new ArrayList<Object>();
+				ArrayList<String> ligne = new ArrayList<String>();
 	            for(int j = 1; j <= rsmd.getColumnCount(); j++){
 	            		
-	            	ligne.add(monresultat.getObject(j));
+	            	ligne.add(monresultat.getObject(j) + "");
 	
 	            }
 	            toutleresultat.add(ligne);
-	
 			}
 		}catch (SQLException e) {
-
 			e.printStackTrace();
-
 		}
 		return toutleresultat;
 	}
