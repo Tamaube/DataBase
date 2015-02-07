@@ -8,13 +8,9 @@ public class CorrectionRequetes
 {
 	public static void main(String args[])
 	{
-		try
+		if(args.length != 2)
 		{
-			if(args.length != 2)
-				throw(new IllegalArgumentException());
-		}
-		catch(IllegalArgumentException e)
-		{
+			throw(new IllegalArgumentException());
 			System.out.println("Usage : CorrectionRequetes.java <chemin_fichier_eleve> <chemin_fichier_correction>");
 			System.exit(0);
 		}
