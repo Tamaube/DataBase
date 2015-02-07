@@ -10,18 +10,19 @@ public class CorrectionRequetes
 	{
 		try
 		{
-			if(args.length != 3)
+			if(args.length != 2)
 				throw(new IllegalArgumentException());
 		}
 		catch(IllegalArgumentException e)
 		{
-			System.out.println("Usage : " + args[0] + " <" + args[1] + "> <" + args[2] + ">");
+			System.out.println("Usage : CorrectionRequetes.java <chemin_fichier_eleve> <chemin_fichier_correction>");
+			System.exit(0);
 		}
-				
+		
 		Connection co = ConnexionJDBC.openConnection(ConnexionJDBC.URL);
 		
 		
-		ArrayList<String> ReqEleve = LecteurFichier.read(args[1]);
-		ArrayList<String> ReqCor = LecteurFichier.read(args[2]);
+		ArrayList<String> ReqEleve = LecteurFichier.read(args[0]);
+		ArrayList<String> ReqCor = LecteurFichier.read(args[0]);
 	}
 }
