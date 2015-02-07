@@ -1,17 +1,18 @@
 package outils;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collection;
 public class ConnexionJDBC
 {
-	public static final String URL = "jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom";
+	private Connection co;
 	
-	public static Connection openConnection(String url)
+	public void openConnection()
 	{
-		Connection co=null;
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			co= DriverManager.getConnection(url);
+			co= DriverManager.getConnection("jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom");
 		}
 		catch(ClassNotFoundException e)
 		{
@@ -20,13 +21,74 @@ public class ConnexionJDBC
 		}
 		catch (SQLException e)
 		{
-			System.out.println("impossible de se connecter à l'url : "+url);
+			System.out.println("impossible de se connecter ");
 			System.exit(1);
 		}
-		return co;
 	}
+	
+	public ResultSet executerSelect(String requete) {
 
-	public static void closeConnection(Connection co)
+		Statement monInstruction;
+
+		try {
+
+			monInstruction = this.co.createStatement();
+			ResultSet monresultat =monInstruction.executeQuery(requete);
+//			ResultSetMetaData rsmd = monresultat.getMetaData();
+//			Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
+//			while(monresultat.next()){
+//				Collection<Object> ligne = new ArrayList<Object>();
+//                for(int j = 1; j <= rsmd.getColumnCount(); j++){
+//                		
+//                	ligne.add(monresultat.getObject(j));
+//
+//                }
+//                toutleresultat.add(ligne);
+//	
+//			}
+
+			System.out.println(" ");
+	
+			System.out.println();
+	
+	
+			monInstruction.close();
+			
+			return monresultat;
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+	
+	public Collection<Collection<Object>> getResEnCollection(ResultSet monresultat)
+	{
+		Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
+		try
+		{
+			ResultSetMetaData rsmd = monresultat.getMetaData();
+			
+			while(monresultat.next()){
+				Collection<Object> ligne = new ArrayList<Object>();
+	            for(int j = 1; j <= rsmd.getColumnCount(); j++){
+	            		
+	            	ligne.add(monresultat.getObject(j));
+	
+	            }
+	            toutleresultat.add(ligne);
+	
+			}
+		}catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+		return toutleresultat;
+	}
+	
+	public void closeConnection()
 	{
 		try
 		{
