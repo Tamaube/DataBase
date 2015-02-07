@@ -10,7 +10,6 @@ public class CorrectionRequetes
 	{
 		if(args.length != 2)
 		{
-			throw(new IllegalArgumentException());
 			System.out.println("Usage : CorrectionRequetes.java <chemin_fichier_eleve> <chemin_fichier_correction>");
 			System.exit(0);
 		}
