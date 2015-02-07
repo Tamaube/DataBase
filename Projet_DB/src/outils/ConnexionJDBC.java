@@ -3,7 +3,7 @@ package outils;
 import java.sql.*;
 public class ConnexionJDBC
 {
-	public static final String URL = "jdbc:oracle:thin:elescar/patate$23@r2d2.etu.iut-orsay.fr:1521:etudom";
+	public static final String URL = "jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom";
 	
 	public static Connection openConnection(String url)
 	{
