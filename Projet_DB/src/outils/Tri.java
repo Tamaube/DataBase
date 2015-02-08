@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import main.*;
 
 
 public class Tri
@@ -11,14 +14,23 @@ public class Tri
 	public static ArrayList<ArrayList<String>> triRes(ResultSet res)
 	{
 		ResultSetMetaData rsmd;
-		ArrayList<ArrayList<String>> tabRes = new ArrayList<ArrayList<String>>();
+		TabRes tabRes = (TabRes) new ArrayList<ArrayList<String>>();
 		try
 		{
 			rsmd = res.getMetaData();
 			tabRes.add(new ArrayList<String>());
 			for(int i = 0; i < rsmd.getColumnCount(); i++)
 				tabRes.get(0).add(rsmd.getColumnName(i));
-			ConnexionJDBC.getResEnCollection(res);
+			ArrayList<ArrayList<String>> tmp = ConnexionJDBC.getResEnCollection(res);
+			for(int i = 0; i < tmp.size(); i++)
+			{
+				tabRes.add(new ArrayList<String>());
+				for(int j = 0; j < tmp.get(i).size(); j++)
+				{
+					tabRes.get(i+1).add(tmp.get(i).get(j));
+				}
+			}
+			Collections.sort((ArrayList)tabRes);
 		}
 		catch(SQLException e)
 		{
