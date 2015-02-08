@@ -18,7 +18,7 @@ public class Compatibilite {
 		this.co =co;
 	}
 	
-	//Compatibilite sur 90 points 
+	//Compatibilite sur 100 points 
 	public int verifierCorrespondance(ArrayList<ArrayList<String>> resultatProfTrier, ArrayList<ArrayList<String>> resultatEleveTrier){
 		int score = 0;
 		int compatibilite = 0;
@@ -43,7 +43,7 @@ public class Compatibilite {
 			
 			cpt++;
 		}
-		score= (compatibilite / resultatProfTrier.get(0).size()) * 90;
+		score= (compatibilite / resultatProfTrier.get(0).size()) * 100;
 		return score;
 	}
 	
