@@ -1,5 +1,6 @@
 package main;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import correction.Compatibilite;
@@ -15,7 +16,7 @@ public class CorrectionRequetes
 		ResultSet rsProf = co.executerSelect(requeteProf);
 		ResultSet rsEleve = co.executerSelect(requeteEleve);
 		
-		System.out.println(requeteProf);
+		
 
 		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve))
 		{
@@ -28,6 +29,14 @@ public class CorrectionRequetes
 				if(score < 0){score=0;}
 			}
 		}
+		try {
+			rsEleve.close();
+			rsProf.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return score;
 		
 	}
