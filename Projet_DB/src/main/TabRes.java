@@ -6,6 +6,11 @@ public class TabRes extends ArrayList<ArrayList<String>>
 {
 	ArrayList<LigneRes> tab;
 	
+	public TabRes()
+	{
+		tab = new ArrayList<LigneRes>();
+	}
+	
 	public boolean add(LigneRes a)
 	{
 		return tab.add(a);
