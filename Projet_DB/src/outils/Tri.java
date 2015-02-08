@@ -32,10 +32,7 @@ public class Tri
 					tabRes.get(i+1).add(tmp.get(i).get(j));
 				}
 			}
-			System.out.println(tabRes);
 			Collections.sort((ArrayList)tabRes);
-			System.out.println("taille temp: " + tmp.size());
-			System.out.println("taille tabRes: " + tabRes.size());
 		}
 		catch(SQLException e)
 		{
