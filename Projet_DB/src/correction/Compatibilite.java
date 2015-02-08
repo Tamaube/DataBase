@@ -18,6 +18,7 @@ public class Compatibilite {
 		this.co =co;
 	}
 	
+	//Compatibilite sur 100 points
 	public int verifierCorrespondance(ArrayList<ArrayList<String>> resultatProfTrier, ArrayList<ArrayList<String>> resultatEleveTrier){
 		int score = 0;
 		int compatibilite = 0;
@@ -58,6 +59,7 @@ public class Compatibilite {
 			ArrayList<ArrayList<String>> resultatEleve = this.co.getResEnCollection(rsEleve);
 			
 			score = score && (resultatProf.size() == resultatEleve.size());
+			
 		}
 		catch(SQLException e)
 		{
