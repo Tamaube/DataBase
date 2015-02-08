@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class TabRes extends ArrayList<ArrayList<String>>
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	ArrayList<LigneRes> tab;
 	
 	public TabRes()

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class LigneRes extends ArrayList<String> implements Comparable<LigneRes>
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	ArrayList<String> tab;
 	
 	public ArrayList<String> getTab() {return tab;}

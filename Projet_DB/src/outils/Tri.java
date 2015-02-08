@@ -11,6 +11,7 @@ import main.*;
 
 public class Tri
 {
+	@SuppressWarnings("unchecked")
 	public static TabRes triRes(ResultSet res)
 	{
 		ResultSetMetaData rsmd;
@@ -22,6 +23,7 @@ public class Tri
 			for(int i = 1; i <= rsmd.getColumnCount(); i++)
 				tabRes.get(0).add(rsmd.getColumnName(i));
 			ArrayList<ArrayList<String>> tmp = ConnexionJDBC.getResEnCollection(res);
+			System.out.println("test : " +tmp.size() ); ////////////////////////////////////////////////////////////////////////////// ligne test
 			for(int i = 0; i < tmp.size(); i++)
 			{
 				tabRes.add(new ArrayList<String>());
