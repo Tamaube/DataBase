@@ -16,7 +16,7 @@ public class CorrectionRequetes
 		ResultSet rsProf = co.executerSelect(requeteProf);
 		ResultSet rsEleve = co.executerSelect(requeteEleve);
 		
-		System.out.println(requeteProf);
+
 
 		if(comp.verifierNombreColonne(rsProf, rsEleve))
 		{
@@ -27,7 +27,6 @@ public class CorrectionRequetes
 				score = score - 10;
 				if(score < 0){score=0;}
 			}
-			System.out.println("score " + score);
 		}
 		try {
 			rsEleve.close();
@@ -53,13 +52,13 @@ public class CorrectionRequetes
 		
 		ArrayList<String> ReqEleve = LecteurFichier.read(args[0]);
 		ArrayList<String> ReqCor = LecteurFichier.read(args[1]);
-		
+
 		int score = 0;
 		
 		int i=0; 
 		while(i<ReqCor.size() && i<ReqEleve.size()) 
 		{
-			score = score + CorrectionRequetes.corrigerUneRequete(ReqCor.get(i), ReqCor.get(i), co);
+			score = score + CorrectionRequetes.corrigerUneRequete(ReqCor.get(i), ReqEleve.get(i), co);
 			i++;
 		}
 		
