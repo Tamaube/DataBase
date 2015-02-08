@@ -10,12 +10,12 @@ public class ConnexionJDBC {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			co = DriverManager
-					.getConnection("jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom");
+					.getConnection("jdbc:oracle:thin:elescar/Patate$23@oracle.iut-orsay.fr:1521:etudom");
 		} catch (ClassNotFoundException e) {
 			System.out.println("il manque le driver oracle");
 			System.exit(1);
 		} catch (SQLException e) {
-			System.out.println("impossible de se connecter ");
+			System.out.println("impossible de se connecter " + e);
 			System.exit(1);
 		}
 	}
@@ -26,9 +26,6 @@ public class ConnexionJDBC {
 
 			monInstruction = this.co.createStatement();
 			ResultSet monresultat = monInstruction.executeQuery(requete);
-			System.out.println(" ");
-			System.out.println();
-			monInstruction.close();
 
 			return monresultat;
 		} catch (SQLException e) {
@@ -61,7 +58,6 @@ public class ConnexionJDBC {
 	public void closeConnection() {
 		try {
 			co.close();
-			System.out.println("Connexion fermée!");
 		} catch (SQLException e) {
 			System.out.println("Impossible de fermer la connexion");
 		}
