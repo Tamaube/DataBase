@@ -21,4 +21,10 @@ public class TabRes extends ArrayList<ArrayList<String>>
 	{
 		return tab.get(index);
 	}
+	
+	@Override
+	public int size()
+	{
+		return tab.size();
+	}
 }
