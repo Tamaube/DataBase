@@ -11,7 +11,7 @@ import main.*;
 
 public class Tri
 {
-	public static ArrayList<ArrayList<String>> triRes(ResultSet res)
+	public static TabRes triRes(ResultSet res)
 	{
 		ResultSetMetaData rsmd;
 		TabRes tabRes = new TabRes();
