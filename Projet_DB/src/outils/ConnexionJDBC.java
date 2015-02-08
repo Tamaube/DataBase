@@ -50,7 +50,6 @@ public class ConnexionJDBC {
 				toutleresultat.add(ligne);
 
 			}
-			toutleresultat.remove(toutleresultat.size() - 1);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
