@@ -36,13 +36,20 @@ public class LigneRes extends ArrayList<String> implements Comparable<LigneRes>
 	}
 	
 	@Override
+	public boolean add(String s)
+	{
+		return tab.add(s);
+	}
+	
+	@Override
 	public String toString()
 	{
-		String s = "";
+		String s = "[";
 		for(int i = 0; i < tab.size(); i++)
 		{
-			s += tab.get(i).toString() + "\n";
+			s += tab.get(i).toString() + ", ";
 		}
+		s = s.substring(0, s.length() - 2) + "]";
 		return s;
 	}
 }

@@ -31,6 +31,7 @@ public class Tri
 					tabRes.get(i+1).add(tmp.get(i).get(j));
 				}
 			}
+			System.out.println(tabRes);
 			Collections.sort((ArrayList)tabRes);
 		}
 		catch(SQLException e)
