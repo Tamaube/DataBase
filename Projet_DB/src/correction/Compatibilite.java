@@ -81,7 +81,10 @@ public class Compatibilite {
 	{
 		boolean ob1 = false, ob2 = false;
 		if(req1.toLowerCase().contains("order by"))
+		{
 			ob1 = true;
+			System.out.println("test");
+		}
 		if(req2.toLowerCase().contains("order by"))
 			ob2 = true;
 		if(ob1 == ob2 == false)
