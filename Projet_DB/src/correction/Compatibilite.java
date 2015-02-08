@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.naming.spi.DirStateFactory.Result;
 
+import main.TabRes;
 import outils.ConnexionJDBC;
 
 
@@ -19,26 +20,30 @@ public class Compatibilite {
 	}
 	
 	//Compatibilite sur 100 points
-	public int verifierCorrespondance(ArrayList<ArrayList<String>> resultatProfTrier, ArrayList<ArrayList<String>> resultatEleveTrier){
+	public int verifierCorrespondance(TabRes resultatProfTrier, TabRes resultatEleveTrier){
 		int score = 0;
 		int compatibilite = 0;
 		int cpt=0;
 		int cpt2 = 0;
+		
+		System.out.println("taille prof: " + resultatProfTrier.size() );
 
 		while(cpt< resultatProfTrier.size() && cpt<resultatEleveTrier.size()){ 
 			cpt2 = 0;
-			
+			System.out.println("1er while: " + cpt);
 			
 			while (cpt2< (resultatProfTrier.get(cpt)).size() && cpt2 < resultatEleveTrier.get(cpt).size())
 			{
-				Object elmtProf = resultatProfTrier.get(cpt).get(cpt2);
-				Object elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
-	
+				String elmtProf = resultatProfTrier.get(cpt).get(cpt2);
+				String elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
 				
+				System.out.println("elmtProf " + elmtProf + " elmtEleve " + elmtEleve);
 				if(elmtProf == elmtEleve)
 				{
 					compatibilite ++;
 				}
+				
+				cpt2++;
 			}
 			
 			cpt++;

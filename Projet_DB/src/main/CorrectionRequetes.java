@@ -17,9 +17,10 @@ public class CorrectionRequetes
 
 		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve))
 		{
-			ArrayList<ArrayList<String>> resultatEleveTrier = Tri.triRes(rsEleve);
-			ArrayList<ArrayList<String>> resultatProfTrier = Tri.triRes(rsProf);
+			TabRes resultatEleveTrier = Tri.triRes(rsEleve);
+			TabRes resultatProfTrier = Tri.triRes(rsProf);
 			score = comp.verifierCorrespondance(resultatProfTrier, resultatEleveTrier);
+			System.out.println("score " + score);
 			if(!comp.orderbyOK(requeteProf, requeteEleve)){
 				score = score - 10;
 				if(score < 0){score=0;}
