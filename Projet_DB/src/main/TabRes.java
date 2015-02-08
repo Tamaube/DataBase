@@ -31,4 +31,10 @@ public class TabRes extends ArrayList<ArrayList<String>>
 	{
 		return tab.size();
 	}
+	
+	@Override
+	public String toString()
+	{
+		return tab.toString();
+	}
 }

@@ -34,4 +34,15 @@ public class LigneRes extends ArrayList<String> implements Comparable<LigneRes>
 	{
 		return tab.size();
 	}
+	
+	@Override
+	public String toString()
+	{
+		String s = "";
+		for(int i = 0; i < tab.size(); i++)
+		{
+			s += tab.get(i).toString() + "\n";
+		}
+		return s;
+	}
 }
