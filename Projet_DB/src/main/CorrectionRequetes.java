@@ -14,6 +14,8 @@ public class CorrectionRequetes
 		Compatibilite comp = new Compatibilite(co);
 		ResultSet rsProf = co.executerSelect(requeteProf);
 		ResultSet rsEleve = co.executerSelect(requeteEleve);
+		
+		System.out.println(requeteProf);
 
 		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve))
 		{
