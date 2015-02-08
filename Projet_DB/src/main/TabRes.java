@@ -11,4 +11,10 @@ public class TabRes extends ArrayList<ArrayList<String>>
 	{
 		return tab.add((LigneRes)a);
 	}
+	
+	@Override
+	public LigneRes get(int index)
+	{
+		return tab.get(index);
+	}
 }
