@@ -35,7 +35,6 @@ public class Compatibilite {
 				{
 					String elmtProf = resultatProfTrier.get(cpt).get(cpt2);
 					String elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
-					
 					if(elmtProf.equals(elmtEleve))
 					{
 						compatibilite ++;
