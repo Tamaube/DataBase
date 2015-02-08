@@ -12,7 +12,7 @@ public class ConnexionJDBC
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			co= DriverManager.getConnection("jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom");
+			co = DriverManager.getConnection("jdbc:oracle:thin:elescar/patate$23@oracle.iut-orsay.fr:1521:etudom");
 		}
 		catch(ClassNotFoundException e)
 		{
@@ -34,18 +34,6 @@ public class ConnexionJDBC
 
 			monInstruction = this.co.createStatement();
 			ResultSet monresultat =monInstruction.executeQuery(requete);
-//			ResultSetMetaData rsmd = monresultat.getMetaData();
-//			Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
-//			while(monresultat.next()){
-//				Collection<Object> ligne = new ArrayList<Object>();
-//                for(int j = 1; j <= rsmd.getColumnCount(); j++){
-//                		
-//                	ligne.add(monresultat.getObject(j));
-//
-//                }
-//                toutleresultat.add(ligne);
-//	
-//			}
 
 			System.out.println(" ");
 	
@@ -63,7 +51,7 @@ public class ConnexionJDBC
 		return null;
 	}
 	
-	public Collection<Collection<Object>> getResEnCollection(ResultSet monresultat)
+	public static Collection<Collection<Object>> getResEnCollection(ResultSet monresultat)
 	{
 		Collection<Collection<Object>> toutleresultat = new ArrayList<Collection<Object>>();
 		try
