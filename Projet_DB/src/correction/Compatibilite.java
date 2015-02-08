@@ -1,13 +1,25 @@
 package correction;
 
+import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.naming.spi.DirStateFactory.Result;
+
+import outils.ConnexionJDBC;
+
 
 public class Compatibilite {
+	
+	private ConnexionJDBC co;
+	
+	public Compatibilite(ConnexionJDBC co){
+		this.co =co;
+	}
+	
 	//Compatibilite sur 90 points 
-	public static int verifierCorrespondance(ArrayList<ArrayList<Object>> resultatProfTrier, ArrayList<ArrayList<Object>> resultatEleveTrier){
+	public int verifierCorrespondance(ArrayList<ArrayList<String>> resultatProfTrier, ArrayList<ArrayList<String>> resultatEleveTrier){
 		int score = 0;
 		int compatibilite = 0;
 		int cpt=0;
@@ -35,13 +47,23 @@ public class Compatibilite {
 		return score;
 	}
 	
-	public static int verifierNombreColonneNombreLigne(ResultSetMetaData rsmdProf, ResultSetMetaData rsmdEleve) throws SQLException
+	public boolean verifierNombreColonneNombreLigne(ResultSet rsProf, ResultSet rsEleve)
 	{
-		int score = 0;
-		if(rsmdProf.getColumnCount() ==  rsmdEleve.getColumnCount()){
+		boolean score = false;
+		try
+		{
+			ResultSetMetaData rsmdProf = rsProf.getMetaData();
+			ResultSetMetaData rsmdEleve = rsEleve.getMetaData();
+			score = (rsmdProf.getColumnCount() ==  rsmdEleve.getColumnCount());
+			ArrayList<ArrayList<String>> resultatProf = this.co.getResEnCollection(rsProf);
+			ArrayList<ArrayList<String>> resultatEleve = this.co.getResEnCollection(rsEleve);
 			
+			score = score && (resultatProf.size() == resultatEleve.size());
 		}
-		
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 		return score;
 	}
