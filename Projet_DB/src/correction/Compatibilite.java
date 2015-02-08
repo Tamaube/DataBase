@@ -26,36 +26,33 @@ public class Compatibilite {
 		int cpt=0;
 		int cpt2 = 0;
 		
-		System.out.println("taille prof: " + resultatProfTrier.size() );
-		System.out.println(resultatProfTrier);
-
-		while(cpt< resultatProfTrier.size() && cpt<resultatEleveTrier.size()){ 
-			cpt2 = 0;
-			System.out.println("1er while: " + resultatProfTrier.get(cpt).size());
-			
-			while (cpt2< (resultatProfTrier.get(cpt)).size() && cpt2 < resultatEleveTrier.get(cpt).size())
-			{
-				String elmtProf = resultatProfTrier.get(cpt).get(cpt2);
-				String elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
+		if(resultatProfTrier.size() == resultatEleveTrier.size())
+		{
+			while(cpt< resultatProfTrier.size() && cpt<resultatEleveTrier.size()){ 
+				cpt2 = 0;
 				
-				System.out.println("elmtProf " + elmtProf + " elmtEleve " + elmtEleve);
-				if(elmtProf == elmtEleve)
+				while (cpt2< (resultatProfTrier.get(cpt)).size() && cpt2 < resultatEleveTrier.get(cpt).size())
 				{
-					compatibilite ++;
+					String elmtProf = resultatProfTrier.get(cpt).get(cpt2);
+					String elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
+					
+					if(elmtProf.equals(elmtEleve))
+					{
+						compatibilite ++;
+					}
+					
+					cpt2++;
 				}
 				
-				cpt2++;
+				cpt++;
 			}
-			
-			cpt++;
+		
+			score= (compatibilite / resultatProfTrier.get(0).size())/ resultatProfTrier.size() * 100;
 		}
-		System.out.println(resultatProfTrier);
-		System.out.println(resultatProfTrier.get(0).size());
-		//score= (compatibilite / resultatProfTrier.get(0).size()) * 100;
 		return score;
 	}
 	
-	public boolean verifierNombreColonneNombreLigne(ResultSet rsProf, ResultSet rsEleve)
+	public boolean verifierNombreColonne(ResultSet rsProf, ResultSet rsEleve)
 	{
 		boolean score = false;
 		try
