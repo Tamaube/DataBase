@@ -80,14 +80,17 @@ public class Compatibilite {
 		if(req1.toLowerCase().contains("order by"))
 		{
 			ob1 = true;
-			System.out.println("test");
+			System.out.println("test1");
 		}
 		if(req2.toLowerCase().contains("order by"))
-			ob2 = true;
-		if(ob1 == ob2 == false)
-			return true;
-		else if(ob1 == ob2 == true)
 		{
+			ob2 = true;
+			System.out.println("test2");
+		}
+		if(ob1 == ob2)
+		{
+			if(ob1 == false)
+				return true;
 			String sub1, sub2;
 			sub1 = req1.toLowerCase().substring(req1.indexOf("order by") + "order by".length());
 			sub1 = sub1.toLowerCase().substring(0, sub1.indexOf("\n"));
