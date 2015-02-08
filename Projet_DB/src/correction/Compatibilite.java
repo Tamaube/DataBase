@@ -59,6 +59,7 @@ public class Compatibilite {
 			ArrayList<ArrayList<String>> resultatEleve = this.co.getResEnCollection(rsEleve);
 			
 			score = score && (resultatProf.size() == resultatEleve.size());
+			
 		}
 		catch(SQLException e)
 		{

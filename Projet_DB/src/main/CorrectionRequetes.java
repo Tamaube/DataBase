@@ -14,12 +14,15 @@ public class CorrectionRequetes
 		Compatibilite comp = new Compatibilite(co);
 		ResultSet rsProf = co.executerSelect(requeteProf);
 		ResultSet rsEleve = co.executerSelect(requeteEleve);
-		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve) && 
-			comp.orderbyOK(requeteProf, requeteEleve))
+		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve))
 		{
 			ArrayList<ArrayList<String>> resultatEleveTrier = Tri.triRes(rsEleve);
 			ArrayList<ArrayList<String>> resultatProfTrier = Tri.triRes(rsProf);
 			score = comp.verifierCorrespondance(resultatProfTrier, resultatEleveTrier);
+			if(!comp.orderbyOK(requeteProf, requeteEleve)){
+				score = score - 10;
+				if(score < 0){score=0;}
+			}
 		}
 		return score;
 		
@@ -36,7 +39,7 @@ public class CorrectionRequetes
 		co.openConnection();
 		
 		ArrayList<String> ReqEleve = LecteurFichier.read(args[0]);
-		ArrayList<String> ReqCor = LecteurFichier.read(args[0]);
+		ArrayList<String> ReqCor = LecteurFichier.read(args[1]);
 		
 		int score = 0;
 		
