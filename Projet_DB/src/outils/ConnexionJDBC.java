@@ -43,7 +43,7 @@ public class ConnexionJDBC
 		return null;
 	}
 	
-	public ArrayList<ArrayList<String>> getResEnCollection(ResultSet monresultat)
+	public static ArrayList<ArrayList<String>> getResEnCollection(ResultSet monresultat)
 	{
 		ArrayList<ArrayList<String>> toutleresultat = new ArrayList<ArrayList<String>>();
 		try
