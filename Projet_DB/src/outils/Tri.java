@@ -14,11 +14,11 @@ public class Tri
 	public static ArrayList<ArrayList<String>> triRes(ResultSet res)
 	{
 		ResultSetMetaData rsmd;
-		TabRes tabRes = (TabRes) new ArrayList<ArrayList<String>>();
+		TabRes tabRes = new TabRes();
 		try
 		{
 			rsmd = res.getMetaData();
-			tabRes.add(new ArrayList<String>());
+			tabRes.add(new LigneRes());
 			for(int i = 0; i < rsmd.getColumnCount(); i++)
 				tabRes.get(0).add(rsmd.getColumnName(i));
 			ArrayList<ArrayList<String>> tmp = ConnexionJDBC.getResEnCollection(res);
