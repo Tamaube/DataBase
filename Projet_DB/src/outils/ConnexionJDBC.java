@@ -34,12 +34,11 @@ public class ConnexionJDBC {
 		return null;
 	}
 
-	public static ArrayList<ArrayList<String>> getResEnCollection(
-			ResultSet monresultat) {
+	public static ArrayList<ArrayList<String>> getResEnCollection(ResultSet monresultat) {
 		ArrayList<ArrayList<String>> toutleresultat = new ArrayList<ArrayList<String>>();
 		try {
 			ResultSetMetaData rsmd = monresultat.getMetaData();
-
+		
 			while (monresultat.next()) {
 				ArrayList<String> ligne = new ArrayList<String>();
 				for (int j = 1; j <= rsmd.getColumnCount(); j++) {
@@ -50,7 +49,8 @@ public class ConnexionJDBC {
 				toutleresultat.add(ligne);
 
 			}
-			toutleresultat.remove(toutleresultat.size() - 1);
+
+			//System.out.println(toutleresultat);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

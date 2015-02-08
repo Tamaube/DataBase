@@ -30,14 +30,14 @@ public class Compatibilite {
 
 		while(cpt< resultatProfTrier.size() && cpt<resultatEleveTrier.size()){ 
 			cpt2 = 0;
-			System.out.println("1er while: " + cpt);
+			//System.out.println("1er while: " + cpt);
 			
 			while (cpt2< (resultatProfTrier.get(cpt)).size() && cpt2 < resultatEleveTrier.get(cpt).size())
 			{
 				String elmtProf = resultatProfTrier.get(cpt).get(cpt2);
 				String elmtEleve = resultatEleveTrier.get(cpt).get(cpt2);
 				
-				System.out.println("elmtProf " + elmtProf + " elmtEleve " + elmtEleve);
+				//System.out.println("elmtProf " + elmtProf + " elmtEleve " + elmtEleve);
 				if(elmtProf == elmtEleve)
 				{
 					compatibilite ++;
@@ -60,10 +60,10 @@ public class Compatibilite {
 			ResultSetMetaData rsmdProf = rsProf.getMetaData();
 			ResultSetMetaData rsmdEleve = rsEleve.getMetaData();
 			score = (rsmdProf.getColumnCount() ==  rsmdEleve.getColumnCount());
-			ArrayList<ArrayList<String>> resultatProf = this.co.getResEnCollection(rsProf);
-			ArrayList<ArrayList<String>> resultatEleve = this.co.getResEnCollection(rsEleve);
-			
-			score = score && (resultatProf.size() == resultatEleve.size());
+//			ArrayList<ArrayList<String>> resultatProf = this.co.getResEnCollection(rsProf);
+//			ArrayList<ArrayList<String>> resultatEleve = this.co.getResEnCollection(rsEleve);
+//			
+//			score = score && (resultatProf.size() == resultatEleve.size());
 			
 		}
 		catch(SQLException e)
