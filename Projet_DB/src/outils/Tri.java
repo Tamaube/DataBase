@@ -23,7 +23,6 @@ public class Tri
 			for(int i = 1; i <= rsmd.getColumnCount(); i++)
 				tabRes.get(0).add(rsmd.getColumnName(i));
 			ArrayList<ArrayList<String>> tmp = ConnexionJDBC.getResEnCollection(res);
-			System.out.println(tmp);
 			for(int i = 0; i < tmp.size(); i++)
 			{
 				tabRes.add(new LigneRes());

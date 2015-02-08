@@ -16,18 +16,18 @@ public class CorrectionRequetes
 		ResultSet rsProf = co.executerSelect(requeteProf);
 		ResultSet rsEleve = co.executerSelect(requeteEleve);
 		
-		
+		System.out.println(requeteProf);
 
-		if(comp.verifierNombreColonneNombreLigne(rsProf, rsEleve))
+		if(comp.verifierNombreColonne(rsProf, rsEleve))
 		{
 			TabRes resultatEleveTrier = Tri.triRes(rsEleve);
 			TabRes resultatProfTrier = Tri.triRes(rsProf);
 			score = comp.verifierCorrespondance(resultatProfTrier, resultatEleveTrier);
-			System.out.println("score " + score);
 			if(!comp.orderbyOK(requeteProf, requeteEleve)){
 				score = score - 10;
 				if(score < 0){score=0;}
 			}
+			System.out.println("score " + score);
 		}
 		try {
 			rsEleve.close();
